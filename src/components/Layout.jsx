@@ -1,12 +1,11 @@
 import { useEffect } from "react";
+import appIcon from "../imgs/appIcon.png";
 
 const navLinks = [
-  { href: "./index.html#funciones", label: "Funciones" },
-  { href: "./index.html#flujo", label: "Flujo" },
-  { href: "./index.html#impacto", label: "Impacto" },
-  { href: "./index.html#cta", label: "Contacto" },
-  { href: "./terms.html", label: "Terminos" },
-  { href: "./privacy.html", label: "Privacidad" },
+  { href: "/index.html#producto", label: "Producto" },
+  { href: "/index.html#funciones", label: "Funciones" },
+  { href: "/index.html#demo", label: "Demo" },
+  { href: "/soporte/", label: "Soporte" },
 ];
 
 export default function Layout({ children, pageTitle, compactNav = false }) {
@@ -17,16 +16,12 @@ export default function Layout({ children, pageTitle, compactNav = false }) {
   }, [pageTitle]);
 
   return (
-    <div className="site-bg">
-      <div className="page-shell">
-        <header className="topbar">
-          <a
-            className="brand"
-            href="./index.html"
-            aria-label="PrestaApp inicio"
-          >
-            <span className="brand-mark">P</span>
-            <span className="brand-text">PrestaApp</span>
+    <div className="site-shell">
+      <header className="site-header">
+        <div className="site-header-inner">
+          <a className="brand" href="/index.html" aria-label="PrestaApp inicio">
+            <img src={appIcon} alt="" />
+            <span>Presta<span>App</span></span>
           </a>
           <nav className={`nav ${compactNav ? "nav-compact" : ""}`}>
             {navLinks.map((link) => (
@@ -35,24 +30,31 @@ export default function Layout({ children, pageTitle, compactNav = false }) {
               </a>
             ))}
           </nav>
-        </header>
+          <a className="header-cta" href="/index.html#contacto">
+            Solicitar demo
+          </a>
+        </div>
+      </header>
 
-        {children}
+      <div className="page-shell">{children}</div>
 
-        <footer className="footer">
+      <footer className="footer">
+        <div className="footer-inner">
           <div>
-            <p className="footer-brand">PrestaApp</p>
-            <p className="footer-copy">
-              Operación movil para cobros, prestamos y control de cartera.
-            </p>
+            <a className="brand footer-brand" href="/index.html">
+              <img src={appIcon} alt="" />
+              <span>Presta<span>App</span></span>
+            </a>
+            <p>Control de préstamos, cobros y cartera en una sola aplicación.</p>
           </div>
           <div className="footer-links">
-            <a href="./terms.html">Terminos y condiciones</a>
-            <a href="./privacy.html">Politica de privacidad</a>
+            <a href="/soporte/">Soporte</a>
+            <a href="/terms.html">Términos y condiciones</a>
+            <a href="/privacy.html">Política de privacidad</a>
           </div>
-          <p className="footer-year">{new Date().getFullYear()}</p>
-        </footer>
-      </div>
+          <p className="footer-year">© {new Date().getFullYear()} PrestaApp</p>
+        </div>
+      </footer>
     </div>
   );
 }

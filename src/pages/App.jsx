@@ -1,315 +1,338 @@
 import Layout from "../components/Layout.jsx";
+import dashboardImage from "../imgs/dashboard.jpg";
+import loansImage from "../imgs/prestamos_view.jpg";
+import collectionsImage from "../imgs/cobros.jpg";
+import newLoanImage from "../imgs/nuevo_prestamo.jpg";
+import receiptImage from "../imgs/recibo.jpg";
+import amortizationImage from "../imgs/amortizacion_rapida.jpg";
+import featureGraphic from "../imgs/feature-graphic.png";
+import demoVideo from "../video/IMG_0566.MP4";
+
+const ArrowIcon = () => (
+  <svg viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M5 12h13m-5-5 5 5-5 5" />
+  </svg>
+);
+
+const CheckIcon = () => (
+  <svg viewBox="0 0 24 24" aria-hidden="true">
+    <path d="m6 12 4 4 8-8" />
+  </svg>
+);
+
+const moduleItems = [
+  "Cartera",
+  "Cobros",
+  "Rutas",
+  "Clientes",
+  "Recibos",
+  "Reportes",
+  "Auditoría",
+  "Banco",
+];
 
 const featureCards = [
   {
-    title: "Cartera clara",
-    body: "Clientes, prestamos, saldos y mora en una sola vista.",
-    tone: "primary",
+    number: "01",
+    title: "Cartera bajo control",
+    body: "Visualiza préstamos activos, saldos pendientes, fechas de pago y atrasos sin reconstruir la información manualmente.",
+    accent: "amber",
   },
   {
-    title: "Cobro más ordenado",
-    body: "Rutas, pendientes y pagos sin hojas sueltas.",
-    tone: "success",
+    number: "02",
+    title: "Cobros en movimiento",
+    body: "Organiza la jornada por rutas, consulta cuotas vencidas y registra cada pago desde el mismo flujo.",
+    accent: "green",
   },
   {
-    title: "Control del equipo",
-    body: "Permisos por rol para cobrar, ver y operar mejor.",
-    tone: "neutral",
-  },
-  {
-    title: "Seguimiento con respaldo",
-    body: "Recibos, notas y trazabilidad por movimiento.",
-    tone: "chip",
+    number: "03",
+    title: "Decisiones con contexto",
+    body: "Revisa el estado de la operación con resúmenes, reportes y trazabilidad por cada movimiento.",
+    accent: "blue",
   },
 ];
 
-const workflow = [
+const showcase = [
   {
-    step: "Paso 1",
-    title: "Captura",
-    body: "Registro rapido.",
+    tag: "Originación",
+    title: "Registra préstamos con reglas claras.",
+    body: "Define capital, interés, frecuencia y fondo. Consulta la amortización antes de confirmar.",
+    image: newLoanImage,
+    alt: "Formulario de nuevo préstamo en PrestaApp",
+    className: "showcase-loan",
   },
   {
-    step: "Paso 2",
-    title: "Configura",
-    body: "Monto y reglas.",
+    tag: "Cobranza",
+    title: "Prioriza cada visita desde tu ruta.",
+    body: "Identifica cuotas, mora y montos pendientes para trabajar la calle con información actualizada.",
+    image: collectionsImage,
+    alt: "Vista de cobros y rutas en PrestaApp",
+    className: "showcase-collections",
   },
   {
-    step: "Paso 3",
-    title: "Cobra",
-    body: "Operación en campo.",
-  },
-  {
-    step: "Paso 4",
-    title: "Decide",
-    body: "Lectura inmediata.",
-  },
-];
-
-const spotlightStats = [
-  { value: "32", label: "pagos hoy" },
-  { value: "08", label: "visitas" },
-  { value: "4.8%", label: "mora critica" },
-];
-
-const proofCards = [
-  {
-    title: "Todo visible",
-    body: "Cobrado, pendiente y vencido en el mismo flujo.",
-  },
-  {
-    title: "Menos friccion",
-    body: "Menos reconstruccion manual al final del dia.",
-  },
-  {
-    title: "Más control",
-    body: "Rutas, permisos y recibos conectados.",
+    tag: "Respaldo",
+    title: "Cada movimiento deja un recibo.",
+    body: "Comparte e imprime comprobantes para mantener una operación ordenada y verificable.",
+    image: receiptImage,
+    alt: "Recibo de desembolso en PrestaApp",
+    className: "showcase-receipt",
   },
 ];
 
-const marqueeItems = [
-  "Prestamos",
-  "Rutas",
-  "Cobradores",
-  "Recibos",
-  "Reportes",
-  "Clientes",
-  "Permisos",
-  "Seguimiento",
+const benefits = [
+  "Control diario de cartera y vencimientos",
+  "Rutas, clientes y pagos conectados",
+  "Recibos listos para compartir o imprimir",
+  "Visibilidad por usuario y trazabilidad",
 ];
 
 export default function App() {
   return (
-    <Layout pageTitle="PrestaApp | Landing" compactNav={false}>
+    <Layout pageTitle="PrestaApp | Control de préstamos y cobros">
       <main className="landing-main">
-        <section className="hero-grid">
+        <section className="hero-section">
+          <div className="hero-glow hero-glow-left" />
+          <div className="hero-glow hero-glow-right" />
           <div className="hero-copy">
-            <div className="hero-announcement">
-              <span className="hero-announcement-dot" />
-              <span>Operación movil para cobranza real</span>
-            </div>
-            <p className="eyebrow">PrestaApp</p>
-            <h1 className="hero-title">
-              Controla cartera, cobros y equipo desde una sola operación.
-            </h1>
+            <p className="eyebrow">
+              <span />
+              Gestión financiera en campo
+            </p>
+            <h1>Tu cartera en orden. Tu operación en movimiento.</h1>
             <p className="hero-text">
-              Clientes, prestamos, rutas, pagos y seguimiento dentro del mismo
-              sistema.
+              PrestaApp reúne préstamos, cobros, rutas y clientes en una sola
+              aplicación para que puedas avanzar con claridad todos los días.
             </p>
             <div className="hero-actions">
-              <a className="button button-primary" href="#cta">
+              <a className="button button-primary" href="#contacto">
                 Solicitar demo
+                <ArrowIcon />
               </a>
-              <a className="button button-secondary" href="#funciones">
-                Ver funciones
+              <a className="button button-ghost" href="#producto">
+                Explorar plataforma
               </a>
             </div>
-            <div className="hero-badges">
-              <span>Cartera</span>
-              <span>Cobros</span>
-              <span>Recibos</span>
-            </div>
-            <div className="hero-spotlight">
-              {spotlightStats.map((item) => (
-                <article key={item.label}>
-                  <strong>{item.value}</strong>
-                  <span>{item.label}</span>
-                </article>
-              ))}
+            <div className="hero-points" aria-label="Ventajas principales">
+              <span>
+                <CheckIcon />
+                Control en tiempo real
+              </span>
+              <span>
+                <CheckIcon />
+                Diseñada para operar en campo
+              </span>
             </div>
           </div>
 
-          <div className="hero-stage">
-            <div className="hero-panel hero-panel-main">
-              <div className="panel-heading">
-                <span className="status-live" />
-                <p>Operación en vivo</p>
-              </div>
-              <div className="stage-phone">
-                <div className="stage-phone-top">
-                  <div>
-                    <p className="stage-label">Ruta del dia</p>
-                    <strong>Villa Mella / Norte</strong>
-                  </div>
-                  <span className="stage-pill">8 pendientes</span>
-                </div>
-                <div className="stage-board">
-                  <article className="stage-board-card">
-                    <p className="metric-label">Cobrado</p>
-                    <strong>RD$ 184,200</strong>
-                    <span>32 pagos</span>
-                  </article>
-                  <article className="stage-board-card">
-                    <p className="metric-label">Pendiente</p>
-                    <strong>RD$ 29,400</strong>
-                    <span>12 cuotas</span>
-                  </article>
-                </div>
-                <div className="stage-queue">
-                  <div className="stage-queue-row">
-                    <span>Maria Rosario</span>
-                    <strong>Hoy</strong>
-                  </div>
-                  <div className="stage-queue-row">
-                    <span>Jose Almonte</span>
-                    <strong>Atraso 3d</strong>
-                  </div>
-                  <div className="stage-queue-row">
-                    <span>Luisa Ortega</span>
-                    <strong>Ruta 2</strong>
-                  </div>
-                </div>
-                <div className="chart-bars" aria-hidden="true">
-                  <span className="chart-bar chart-bar-1" />
-                  <span className="chart-bar chart-bar-2" />
-                  <span className="chart-bar chart-bar-3" />
-                  <span className="chart-bar chart-bar-4" />
-                  <span className="chart-bar chart-bar-5" />
-                </div>
-              </div>
+          <div className="hero-product">
+            <div className="product-orbit product-orbit-one" />
+            <div className="product-orbit product-orbit-two" />
+            <div className="phone-frame phone-frame-hero">
+              <div className="phone-notch" />
+              <img
+                src={dashboardImage}
+                alt="Panel principal de PrestaApp con el estado de cartera"
+              />
             </div>
-
-            <div className="hero-side-stack">
-              <div className="hero-floating-card">
-                <p className="floating-title">Pulso de cobros</p>
-                <div className="floating-row">
-                  <span>Cuotas al dia</span>
-                  <strong>71%</strong>
-                </div>
-                <div className="floating-row">
-                  <span>Proximo pago</span>
-                  <strong>19%</strong>
-                </div>
-                <div className="floating-row floating-row-danger">
-                  <span>Vencidos</span>
-                  <strong>10%</strong>
-                </div>
+            <article className="floating-insight floating-insight-top">
+              <span className="floating-icon">↗</span>
+              <div>
+                <small>Visibilidad diaria</small>
+                <strong>Cartera al instante</strong>
               </div>
-
-              <div className="hero-note-card">
-                <p className="hero-note-label">Equipo conectado</p>
-                <strong>14 usuarios activos</strong>
-                <span>Permisos por rol.</span>
+            </article>
+            <article className="floating-insight floating-insight-bottom">
+              <span className="floating-status" />
+              <div>
+                <small>Operación conectada</small>
+                <strong>Cobros + rutas + recibos</strong>
               </div>
-            </div>
+            </article>
           </div>
         </section>
 
-        <section className="value-strip" aria-label="Mensajes de valor">
-          <div className="value-track">
-            {[...marqueeItems, ...marqueeItems].map((item, index) => (
-              <span key={`${item}-${index}`}>{item}</span>
+        <section className="module-strip" aria-label="Módulos disponibles">
+          <p>Todo lo que necesitas para operar</p>
+          <div className="module-track">
+            {moduleItems.map((item) => (
+              <span key={item}>
+                <i />
+                {item}
+              </span>
             ))}
           </div>
         </section>
 
-        <section className="proof-shell">
-          <div className="proof-lead">
-            <p className="eyebrow">Hecho para operar</p>
-            <h2>Menos texto. Máas lectura operativa.</h2>
-          </div>
-          <div className="proof-grid">
-            {proofCards.map((card) => (
-              <article key={card.title} className="proof-card">
-                <h3>{card.title}</h3>
-                <p>{card.body}</p>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section className="section-block" id="funciones">
-          <div className="section-heading">
-            <p className="eyebrow">Funciones</p>
-            <h2>Cuatro bloques para operar sin friccion.</h2>
-          </div>
-          <div className="feature-grid">
-            {featureCards.map((card, index) => (
-              <article
-                key={card.title}
-                className={`feature-card feature-${card.tone}`}
-              >
-                <div className="feature-card-top">
-                  <p className="feature-index">0{index + 1}</p>
-                </div>
-                <h3>{card.title}</h3>
-                <p>{card.body}</p>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section className="section-block" id="flujo">
-          <div className="section-heading">
-            <p className="eyebrow">Como fluye</p>
-            <h2>Del registro al cobro.</h2>
-          </div>
-          <div className="workflow-grid">
-            {workflow.map((item) => (
-              <article key={item.step} className="workflow-card">
-                <div className="workflow-card-top">
-                  <span className="step-pill">{item.step}</span>
-                  <span className="workflow-line" />
-                </div>
-                <h3>{item.title}</h3>
-                <p>{item.body}</p>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section className="impact-shell" id="impacto">
-          <div className="impact-copy">
-            <p className="eyebrow">Impacto</p>
-            <h2>Menos caos. Más control.</h2>
+        <section className="intro-section" id="producto">
+          <div className="section-copy">
+            <p className="eyebrow">
+              <span />
+              Una sola plataforma
+            </p>
+            <h2>Menos hojas sueltas. Más control sobre cada peso.</h2>
             <p>
-              La cartera se entiende mejor cuando todo vive en el mismo sistema.
+              Desde el primer préstamo hasta el último cobro, PrestaApp mantiene
+              la operación conectada para que tengas contexto antes de tomar
+              decisiones.
+            </p>
+            <a className="text-link" href="#funciones">
+              Conoce las funciones
+              <ArrowIcon />
+            </a>
+          </div>
+          <div className="intro-visual">
+            <img
+              src={featureGraphic}
+              alt="Representación visual de los módulos financieros de PrestaApp"
+            />
+          </div>
+        </section>
+
+        <section className="features-section" id="funciones">
+          <div className="section-heading">
+            <div>
+              <p className="eyebrow">
+                <span />
+                Pensada para el día a día
+              </p>
+              <h2>La información correcta, justo cuando la necesitas.</h2>
+            </div>
+            <p>
+              Una experiencia directa para gestionar préstamos, recuperar
+              cartera y mantener el equipo enfocado.
             </p>
           </div>
-          <div className="impact-grid">
-            <article>
-              <strong>Menos friccion</strong>
-              <span>Registro operativo.</span>
-            </article>
-            <article>
-              <strong>Más contexto</strong>
-              <span>Mora y seguimiento.</span>
-            </article>
-            <article>
-              <strong>Más orden</strong>
-              <span>Calle y supervision.</span>
-            </article>
+          <div className="feature-grid">
+            {featureCards.map((feature) => (
+              <article
+                className={`feature-card feature-${feature.accent}`}
+                key={feature.number}
+              >
+                <span className="feature-number">{feature.number}</span>
+                <h3>{feature.title}</h3>
+                <p>{feature.body}</p>
+                <div className="feature-line" />
+              </article>
+            ))}
           </div>
         </section>
 
-        <section className="cta-shell" id="cta">
-          <div className="cta-card">
-            <div className="cta-copy">
-              <p className="eyebrow">Siguiente paso</p>
-              <h2>Solicita una demo.</h2>
-              <p>Te mostramos el flujo completo.</p>
+        <section className="video-section" id="demo">
+          <div className="video-copy">
+            <p className="eyebrow">
+              <span />
+              Mira PrestaApp en acción
+            </p>
+            <h2>Conoce la experiencia antes de empezar.</h2>
+            <p>
+              Recorre la aplicación y descubre cómo centralizar préstamos,
+              cobros y seguimiento desde una interfaz diseñada para trabajar
+              todos los días.
+            </p>
+            <a className="text-link" href="/soporte/">
+              ¿Necesitas ayuda?
+              <ArrowIcon />
+            </a>
+          </div>
+          <div className="video-card">
+            <div className="video-card-header">
+              <div>
+                <span className="video-status" />
+                Demostración de producto
+              </div>
+              <small>PrestaApp</small>
             </div>
-            <div className="cta-panel">
-              <div className="cta-panel-box">
-                <span className="cta-panel-label">Correo</span>
-                <strong>josealbertoromanynfante@gmail.com</strong>
-              </div>
-              <div className="cta-panel-box">
-                <span className="cta-panel-label">Télefono</span>
-                <strong>+1 (829) 962-3287</strong>
-              </div>
-              <div className="cta-actions">
-                <a
-                  className="button button-primary"
-                  href="mailto:josealbertoromanynfante@gmail.com"
-                >
-                  Solicitar demo
-                </a>
-                <a className="button button-secondary" href="tel:+18095550199">
-                  Llamar ahora
-                </a>
-              </div>
+            <video controls playsInline preload="metadata">
+              <source src={demoVideo} type="video/mp4" />
+              Tu navegador no puede reproducir este video.
+            </video>
+          </div>
+        </section>
+
+        <section className="platform-section">
+          <div className="platform-phones" aria-label="Vistas de PrestaApp">
+            <div className="phone-frame platform-phone platform-phone-back">
+              <img src={amortizationImage} alt="Tabla de amortización rápida" />
             </div>
+            <div className="phone-frame platform-phone platform-phone-front">
+              <img src={loansImage} alt="Listado de préstamos en PrestaApp" />
+            </div>
+          </div>
+          <div className="platform-copy">
+            <p className="eyebrow">
+              <span />
+              Control operativo
+            </p>
+            <h2>Una vista clara para actuar rápido.</h2>
+            <p>
+              Consulta el estado de cada préstamo y cotiza nuevas opciones sin
+              perder el ritmo de trabajo. Toda la información vive en el mismo
+              lugar.
+            </p>
+            <ul>
+              {benefits.map((benefit) => (
+                <li key={benefit}>
+                  <CheckIcon />
+                  {benefit}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+        <section className="showcase-section">
+          <div className="section-heading section-heading-centered">
+            <div>
+              <p className="eyebrow">
+                <span />
+                Del préstamo al recibo
+              </p>
+              <h2>Un flujo completo para operar sin improvisar.</h2>
+            </div>
+          </div>
+          <div className="showcase-grid">
+            {showcase.map((item) => (
+              <article className="showcase-card" key={item.tag}>
+                <div className={`showcase-image ${item.className}`}>
+                  <img src={item.image} alt={item.alt} />
+                </div>
+                <div className="showcase-copy">
+                  <p className="card-tag">{item.tag}</p>
+                  <h3>{item.title}</h3>
+                  <p>{item.body}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="cta-section" id="contacto">
+          <div className="cta-light cta-light-one" />
+          <div className="cta-light cta-light-two" />
+          <div className="cta-copy">
+            <p className="eyebrow">
+              <span />
+              Da el siguiente paso
+            </p>
+            <h2>Ordena tu operación con PrestaApp.</h2>
+            <p>
+              Solicita una demostración y revisa cómo la plataforma puede
+              ayudarte a gestionar tu cartera con mayor claridad.
+            </p>
+          </div>
+          <div className="cta-actions">
+            <a
+              className="button button-primary"
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=josealbertoromanynfante@gmail.com&su=Solicitud%20de%20demo%20PrestaApp"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Escribir por correo
+              <ArrowIcon />
+            </a>
+            <a className="button button-outline" href="tel:+18299623287">
+              Llamar al +1 (829) 962-3287
+            </a>
           </div>
         </section>
       </main>

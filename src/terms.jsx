@@ -9,7 +9,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <LegalPage
       document={legalDocuments.terms}
       eyebrow="Marco legal"
-      pageTitle="PrestaApp | Terminos y condiciones"
+      pageTitle="PrestaApp | Términos y condiciones"
     />
   </React.StrictMode>
 );

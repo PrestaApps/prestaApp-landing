@@ -9,7 +9,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <LegalPage
       document={legalDocuments.privacy}
       eyebrow="Privacidad"
-      pageTitle="PrestaApp | Politica de privacidad"
+      pageTitle="PrestaApp | Política de privacidad"
     />
   </React.StrictMode>
 );
